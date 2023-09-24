@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    display: block;
+  margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+input{
+    text-align: center;
+    font-size: 20px;
+}
+
+.input-error {
+    border: 2px #f00 solid;
+    background-color: #fdd;
+}
+
+.resultado{
+    margin: 20px 0;
+    font-style: 28px;
+}
+
+textarea{
+    border: none;
+    border-bottom: 2px solid black;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    height: fit-content;
+    resize: none;
+}

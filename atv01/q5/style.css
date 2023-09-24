@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+h1{
+    margin-top: 30px;
+}
+
+button{
+    width: 100px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.simulacoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.simulacao {
+  width: fit-content;
+}
+
+ul {
+  padding: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 2px solid black;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+h3 {
+  text-align: center;
+}

@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+    gap: 5px;
+}
+
+.input > input{
+    font-size: 30px;
+    text-align: center;
+}
+
+.conversoes{
+    display: flex;
+    gap: 30px;
+}
+
+.fahrenheit, .kelvin{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+}
+
+.fahrenheit > textarea{
+    border: 2px solid green;
+}
+.kelvin > textarea{
+    border: 2px solid blue;
+}
+
+textarea{
+    font-size: 30px;
+    resize: none;
+    min-width: 500px;
+    height: fit-content;
+    text-align: center;
+    display: flex;
+}
