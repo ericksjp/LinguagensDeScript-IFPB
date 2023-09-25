@@ -1,93 +1,75 @@
-const filmData = document.querySelector(".dataFilms");
-const procurarCamp = document.querySelector("input");
-const filmes = [{
-    "titulo": "Dawn of the Planet of the Apes",
-    "lancamento": 2014,
-},
-{
-    "titulo": "District 9",
-    "lancamento": 2009,
-},
-{
-    "titulo": "Transformers: Age of Extinction",
-    "lancamento": 2014,
-},
-{
-    "titulo": "X-Men: Days of Future Past",
-    "lancamento": 2014,
-},
-{
-    "titulo": "The Machinist",
-    "lancamento": 2004,
-},
-{
-    "titulo": "The Last Samurai",
-    "lancamento": 2003,
-},
-{
-    "titulo": "The Amazing Spider-Man 2",
-    "lancamento": 2014,
-},
-{
-    "titulo": "Tangled",
-    "lancamento": 2010,
-},
-{
-    "titulo": "Rush",
-    "lancamento": 2013,
-},
-{
-    "titulo": "Drag Me to Hell",
-    "lancamento": 2009,
-},
-{
-    "titulo": "Despicable Me 2",
-    "lancamento": 2013,
-},
-{
-    "titulo": "Kill Bill: Vol. 1",
-    "lancamento": 2003,
-},
-{
-    "titulo": "A Bug's Life",
-    "lancamento": 1998,
-},
-{
-    "titulo": "Life of Brian",
-    "lancamento": 1972,
-},
-{
-    "titulo": "How to Train Your Dragon",
-    "lancamento": 2010,
-}];
+const addButton = document.forms.addTarefa.adicionar;
+const input = document.querySelector("input");
+const tarefas = document.querySelector(".tarefas");
 
-//inserindo os filmes
-filmes.forEach((film) => {
-    ulElement = document.createElement("ul");
-    ulElement.innerHTML = `
-    <li>Título: ${film.titulo}</li>
-    <li>Lançamento: ${film.lancamento}</li>
-    `;
-    filmData.appendChild(ulElement);
-})
+addButton.addEventListener('click', handleAddButtonSubmitClick);
+input.addEventListener('keyup', handleInputKeyUp);
 
-procurarCamp.addEventListener("keyup", procurarCampInputHandler);
-
-function procurarCampInputHandler(){
-    procurarFilme();
+function handleInputKeyUp(e){
+    addButton.disabled = !(e.target.value.length > 2);
 }
 
-function procurarFilme() {
-    const elements = document.querySelector(".dataFilms").querySelectorAll("ul");
-    const procurarPor = procurarCamp.value.toLowerCase().trim();
-  
-    for (const ulElement of elements) {
-      const name = ulElement.querySelectorAll("li")[0].textContent.toLowerCase().trim().substring(8);
-      const dataLancamento = ulElement.querySelectorAll("li")[1].textContent.trim().substring(12);
-      
-      if (name.includes(procurarPor) || dataLancamento.includes(procurarPor))
-        ulElement.style.display = "";
-       else 
-        ulElement.style.display = "none";
+function handleRmvButtonSubmitClick(event){
+    event.preventDefault();
+    const div = event.target.closest(".tarefa");
+    div.remove();
+    if (!tarefas.firstChild){
+        const message = document.createElement("h3");
+        message.id = "no-item";
+        message.textContent = "Lista de tarefas vazia";
+        tarefas.appendChild(message);
     }
 }
+
+function handleAddButtonSubmitClick(event){
+    event.preventDefault();
+    if (buscarTarefa()){
+        alert("Elemento ja inserido na lista de tarefas");
+        document.forms.addTarefa.name.value = "";
+        return;
+    }
+    addTarefa();
+}
+
+function buscarTarefa(){
+    const elements = document.querySelectorAll(".tarefa");
+
+    for (const element of elements) {
+        const nomeTarefa = element.querySelector("h3").textContent.toLowerCase();
+        if (nomeTarefa.includes(input.value.toLowerCase())){
+            return true;
+        }
+    }
+    return false;
+}
+
+function addTarefa(){
+    if (tarefas.querySelector("#no-item")){
+        tarefas.querySelector("#no-item").remove();
+    };    
+
+    const tarefasConteiner = document.querySelector(".tarefas");
+    const divElement = createContainer(input.value);
+    tarefasConteiner.appendChild(divElement);
+    document.forms.addTarefa.name.value = "";
+    // addButton.disabled = true;
+}
+
+function createContainer (inputValue){
+    const divElement = document.createElement("div");
+    divElement.classList.add("tarefa");
+
+    const buttonElement = document.createElement("button");
+    buttonElement.classList.add("remover");
+    buttonElement.textContent = "X";
+    buttonElement.addEventListener('click', handleRmvButtonSubmitClick);
+
+    const taskElement = document.createElement("h3");
+    taskElement.textContent = inputValue;
+
+    divElement.appendChild(taskElement);
+    divElement.appendChild(buttonElement);
+
+    return divElement;
+}
+
