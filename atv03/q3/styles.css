@@ -1,0 +1,43 @@
+form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 10px;
+    gap: 10px;
+    width: fit-content;
+    max-width: 800px;
+    background-color: #e8e8e8;
+    margin: 0 auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+input {
+    display: block;
+    width: 300px;
+    font-size: 16px;
+}
+
+button {
+    width: fit-content;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 10px 20px;
+}
+
+th {
+    background-color: #d1d1d1;
+}
+  
+tfoot {
+    background-color: #d1d1d1;
+}
