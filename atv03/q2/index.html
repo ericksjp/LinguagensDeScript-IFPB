@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2 style="text-align: center;">Cadastre um Cliente</h2>
+        <form>
+            <label for="nome-cliente">Nome:  
+                <input id="nome-cliente" name="nome-cliente" type="text" placeholder="Ex: Michael Jegson">
+            </label>
+            <label for="documento-cliente">Documento:
+                <input id="documento-cliente" name="documento-cliente"type="text" placeholder="Ex: 123456">
+            </label>
+            <label for="saldo-cliente">Saldo Inicial:
+                <input id="saldo-cliente" name="saldo-cliente" type="text" placeholder="Ex: 20">
+            </label>
+            <button id="form-button" type="submit" disabled>Cadastrar</button>
+        </form>
+        <h2>Clientes Cadastrados</h2>
+        <hr>
+        <div class="clientes-cadastrados">
+
+        </div>
+    </div>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>

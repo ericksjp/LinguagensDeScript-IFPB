@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h3>Descreva o evento</h3>
+    <form id="form">
+      <label for="nome-evento"
+        >Nome do Evento:
+        <input
+          id="nome-evento"
+          name="nome-evento"
+          type="text"
+          placeholder="Informe o nome do evento"
+        />
+      </label>
+      <label for="data-evento"
+        >Data do Evento:
+        <input id="data-evento" name="data-evento" type="datetime-local" />
+      </label>
+      <button id="botao-enviar" disabled>adicionar</button>
+    </form>
+    <hr style="margin-top: 20px;">
+    <h3>Lista de eventos:</h3>
+    <div class="events-div">
+
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

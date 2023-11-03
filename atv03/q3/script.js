@@ -35,8 +35,6 @@ valorInput.addEventListener('input', () => {
         key2 = true;
     else 
         key2 = false
-
-    console.log(liberarButao(key1,key2));
     
     butao.disabled = liberarButao(key1,key2);
 })
@@ -92,6 +90,8 @@ function turnRedGreen(element){
         element.style.color = 'green';
     } else if (valor < 0){
         element.style.color = 'red';
+    } else {
+        element.style.color = 'black';
     }
 }
 
