@@ -1,0 +1,42 @@
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+fieldset {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input {
+    font-size: 16px;
+}
+
+button {
+    font-size: 14px;
+    overflow-wrap: break-word;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+th {
+    background-color: rgb(222, 222, 222);
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+td > input {
+    height: 20px;
+    width: 20px;
+}
